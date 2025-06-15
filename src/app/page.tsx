@@ -1,16 +1,18 @@
-"use client"
+"use client";
 
 import { Github, Upload } from "lucide-react";
 import Link from "next/link";
-
 
 export default function Home() {
   return (
     <div className="mx-auto container p-10">
       <main className="flex items-center justify-center flex-col gap-4 px-12">
         <h1 className="text-5xl">Curious Who Doesn&apos;t Follow You Back?</h1>
-        <h2 className="text-xl text-center">Safely see your non-followers using your official Instagram data. Your files are processed right here in your browser and are never uploaded anywhere.</h2>
-        
+        <h2 className="text-xl text-center">
+          Safely see your non-followers using your official Instagram data. Your files are processed
+          right here in your browser and are never uploaded anywhere.
+        </h2>
+
         {/* Drop Zone */}
         <div className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg">
           <Upload size={50}></Upload>
@@ -18,14 +20,21 @@ export default function Home() {
           <span>or</span>
           <button className="border-1 p-2 text-lg">Select Files</button>
         </div>
-        
-        <Link href="/tutorial" className="underline"> Don&apos;t have your files? Here&apos;s how to get them.</Link>
+
+        <Link href="/tutorial" className="underline">
+          {" "}
+          Don&apos;t have your files? Here&apos;s how to get them.
+        </Link>
       </main>
 
-      <footer className="fixed bottom-0 right-0 p-5 flex flex-row gap-2">
+      <a
+        href="https://github.com/Eric-Zhang-Developer/follow-diff"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-0 right-0 p-5 flex flex-row gap-2 hover:scale-110 transition"
+      >
         Open Source & Privacy-First <Github></Github>
-      </footer>
+      </a>
     </div>
   );
 }
-  
