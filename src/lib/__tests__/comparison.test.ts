@@ -16,4 +16,12 @@ describe('Comparison Tests', () => {
 
     expect(result).toEqual([]);
   })
+
+  it('should return the entire following list if there are not followers to compare to' , () => {
+    const followers = [""];
+    const following = ["Alice", "Brenda", "Charlie", "David"];
+    const result = Compare(following, followers)
+
+    expect(result).toEqual(following);
+  })
 });
