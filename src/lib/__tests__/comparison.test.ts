@@ -5,7 +5,7 @@ describe('Comparison Tests', () => {
 
     const followers = ["Alice", "Brenda"];
     const following = ["Alice", "Brenda", "Charlie"];
-    const result = Compare(followers, following);
+    const result = Compare(following, followers);
 
     expect(result).toEqual(["Charlie"]); 
   });
