@@ -25,8 +25,12 @@ const data = [
   },
 ];
 
+// Other tests are not necessary here because Typescript already validates the json as formed properly
+// If the json is bad then we throw an error outside 
+
 describe("Extract Names Function Tests", () => {
   describe("Core Logic", () => {
+    // Happy path
     it("should return an array of usernames when a proper json is input", () => {
       const result = ExtractNamesFromJson(data);
       expect(result).toEqual(["POTUS", "NASA"]);
