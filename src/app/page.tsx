@@ -2,7 +2,6 @@
 
 import { Github, Upload } from "lucide-react";
 import Link from "next/link";
-import Dropzone from "react-dropzone";
 
 export default function Home() {
   return (
@@ -15,22 +14,13 @@ export default function Home() {
         </h2>
 
         {/* Drop Zone */}
-        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
-          {({ getRootProps, getInputProps }) => (
-            <div
-              {...getRootProps()}
-              className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg hover:cursor-pointer"
-            >
-              <input {...getInputProps()}></input>
-              <Upload size={50}></Upload>
-              Drag & drop your followers.json & following.json files here
-              <span>or</span>
-              <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
-                Select Files
-              </button>
-            </div>
-          )}
-        </Dropzone>
+        <div className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg hover:cursor-pointer">
+          <Upload size={50}></Upload>
+          Drag & drop your followers.json & following.json files here
+          <span>or</span>
+          <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">Select Files</button>
+        </div>
+
         <Link href="/tutorial" className="underline">
           {" "}
           Don&apos;t have your files? Here&apos;s how to get them.
