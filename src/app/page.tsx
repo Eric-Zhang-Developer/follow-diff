@@ -15,7 +15,7 @@ export default function Home() {
         </h2>
 
         {/* Drop Zone */}
-        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)} accept={{ 'application/json': ['.json'] }}>
           {({ getRootProps, getInputProps }) => (
             <div
               {...getRootProps()}
