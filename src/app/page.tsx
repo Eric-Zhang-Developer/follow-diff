@@ -3,8 +3,27 @@
 import { Github, Upload } from "lucide-react";
 import Link from "next/link";
 import Dropzone from "react-dropzone";
-
 export default function Home() {
+
+  function onDrop(acceptedFiles: File[]){
+    acceptedFiles.forEach((file) => {
+      const reader = new FileReader();
+  
+      reader.onabort = () => console.log('file reading was aborted');
+      reader.onerror = () => console.log('file reading has failed');
+      reader.onload = () => {
+        // Do whatever you want with the file content
+        const content = reader.result as string;
+        try {
+          console.log(content);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      reader.readAsText(file); 
+    });
+  };
+
   return (
     <div className="mx-auto container p-10">
       <main className="flex items-center justify-center flex-col gap-4 px-12">
@@ -15,7 +34,7 @@ export default function Home() {
         </h2>
 
         {/* Drop Zone */}
-        <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)} accept={{ 'application/json': ['.json'] }}>
+        <Dropzone onDrop={onDrop} accept={{ 'application/json': ['.json'] }}>
           {({ getRootProps, getInputProps }) => (
             <div
               {...getRootProps()}
