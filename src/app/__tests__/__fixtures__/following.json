@@ -1,0 +1,69 @@
+{
+  "relationships_following": [
+    {
+      "title": "",
+      "media_list_data": [
+        
+      ],
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/friend_alice",
+          "value": "friend_alice",
+          "timestamp": 1748627976
+        }
+      ]
+    },
+    {
+      "title": "",
+      "media_list_data": [
+        
+      ],
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/friend_bob",
+          "value": "friend_bob",
+          "timestamp": 1748365568
+        }
+      ]
+    },
+    {
+      "title": "",
+      "media_list_data": [
+        
+      ],
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/friend_charlie",
+          "value": "friend_charlie",
+          "timestamp": 1748029146
+        }
+      ]
+    },
+    {
+      "title": "",
+      "media_list_data": [
+        
+      ],
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/ex_friend_dorthy",
+          "value": "ex_friend_dorthy",
+          "timestamp": 1737667668
+        }
+      ]
+    },
+    {
+      "title": "",
+      "media_list_data": [
+        
+      ],
+      "string_list_data": [
+        {
+          "href": "https://www.instagram.com/NASA",
+          "value": "NASA",
+          "timestamp": 1727667668
+        }
+      ]
+    }
+  ]
+}
