@@ -85,11 +85,11 @@ export default function Home() {
         ) : (
           <section>
             <p className="text-2xl mb-6">Processed!</p>
-            <ol className="flex flex-row flex-wrap container mx-auto gap-3 justify-center">
+            <ol className="flex flex-row flex-wrap container mx-auto gap-2.5 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>
                   <a
-                    className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border"
+                    className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border cursor-pointer transition transform hover:scale-110"
                     href={`https://www.instagram.com/${userName}/`}
                     target="_blank"
                     rel="noopener noreferrer"
