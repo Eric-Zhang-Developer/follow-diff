@@ -61,14 +61,12 @@ export default function Home() {
         <h1 className="md:text-5xl text-3xl text-center">
           Curious Who Doesn&apos;t Follow You Back?
         </h1>
-        <h2 className="text-lg md:text-xl text-center">
-          Safely see your non-followers using your official Instagram data. Your files are processed
-          right here in your browser and are never uploaded anywhere.
-        </h2>
-
         {!hasProcessedDifference ? (
-          // Drop Zone
           <section className="flex flex-col container items-center gap-4">
+            <h2 className="text-lg md:text-xl text-center">
+              Safely see your non-followers using your official Instagram data. Your files are
+              processed right here in your browser and are never uploaded anywhere.
+            </h2>
             <Dropzone onDrop={onDrop} accept={{ "application/json": [".json"] }}>
               {({ getRootProps, getInputProps }) => (
                 <div
