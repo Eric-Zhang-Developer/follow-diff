@@ -85,7 +85,7 @@ export default function Home() {
         ) : (
           <section>
             <p className="text-2xl mb-6">Processed!</p>
-            <ol>
+            <ol className="flex flex-row flex-wrap container mx-auto gap-3 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>{userName}</li>
               ))}
