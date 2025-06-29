@@ -1,28 +1,39 @@
 "use client";
 
+import { useState } from "react";
+import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
 import { Github, Upload } from "lucide-react";
 import Link from "next/link";
 import Dropzone from "react-dropzone";
+import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
 export default function Home() {
+  const [followers, setFollowers] = useState<string[]>([]);
+  const [following, setFollowing] = useState<string[]>([]);
 
-  function onDrop(acceptedFiles: File[]){
+  function onDrop(acceptedFiles: File[]) {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
-  
-      reader.onabort = () => console.log('file reading was aborted');
-      reader.onerror = () => console.log('file reading has failed');
+
+      reader.onabort = () => console.log("file reading was aborted");
+      reader.onerror = () => console.log("file reading has failed");
       reader.onload = () => {
-        // Do whatever you want with the file content
-        const content = reader.result as string;
-        try {
-          console.log(content);
-        } catch (error) {
-          console.log(error);
+        const input = JSON.parse(reader.result as string);
+
+        const followingResult = FollowingListSchema.safeParse(input);
+        if (followingResult.success) {
+          setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
         }
+
+        const followerResult = FollowerListSchema.safeParse(input);
+        if (followerResult.success) {
+          setFollowers(ExtractNamesFromJson(followerResult.data));
+        }
+
+        console.error("File is not a valid followers or following JSON:", followerResult.error);
       };
-      reader.readAsText(file); 
+      reader.readAsText(file);
     });
-  };
+  }
 
   return (
     <div className="mx-auto container p-10">
@@ -34,7 +45,7 @@ export default function Home() {
         </h2>
 
         {/* Drop Zone */}
-        <Dropzone onDrop={onDrop} accept={{ 'application/json': ['.json'] }}>
+        <Dropzone onDrop={onDrop} accept={{ "application/json": [".json"] }}>
           {({ getRootProps, getInputProps }) => (
             <div
               {...getRootProps()}
