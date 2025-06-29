@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
 import { Github, Upload } from "lucide-react";
 import Link from "next/link";
 import Dropzone from "react-dropzone";
 import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
+import Compare from "@/lib/comparison";
 export default function Home() {
   const [followers, setFollowers] = useState<string[]>([]);
   const [following, setFollowing] = useState<string[]>([]);
+  const [userDifference, setUserDifference] = useState<string[]>([]);
+
+  const [hasProcessedFollowers, setHasProcessedFollowers] = useState(false);
+  const [hasProcessedFollowing, setHasProcessedFollowing] = useState(false);
+  const [hasProcessedDifference, setHasProcessedDifference] = useState(false);
 
   function onDrop(acceptedFiles: File[]) {
     acceptedFiles.forEach((file) => {
@@ -17,23 +23,37 @@ export default function Home() {
       reader.onabort = () => console.log("file reading was aborted");
       reader.onerror = () => console.log("file reading has failed");
       reader.onload = () => {
-        const input = JSON.parse(reader.result as string);
+        try {
+          const input = JSON.parse(reader.result as string);
 
-        const followingResult = FollowingListSchema.safeParse(input);
-        if (followingResult.success) {
-          setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
+          const followingResult = FollowingListSchema.safeParse(input);
+          if (followingResult.success) {
+            setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
+            setHasProcessedFollowing(true);
+            return;
+          }
+
+          const followerResult = FollowerListSchema.safeParse(input);
+          if (followerResult.success) {
+            setFollowers(ExtractNamesFromJson(followerResult.data));
+            setHasProcessedFollowers(true);
+            return;
+          }
+        } catch (error) {
+          console.error("File is not a valid followers or following JSON:", error);
         }
-
-        const followerResult = FollowerListSchema.safeParse(input);
-        if (followerResult.success) {
-          setFollowers(ExtractNamesFromJson(followerResult.data));
-        }
-
-        console.error("File is not a valid followers or following JSON:", followerResult.error);
       };
       reader.readAsText(file);
     });
   }
+
+  // Calculate Diff
+  useEffect(() => {
+    if (hasProcessedFollowers && hasProcessedFollowing) {
+      setUserDifference(Compare(following, followers));
+      setHasProcessedDifference(true);
+    }
+  }, [hasProcessedFollowers, hasProcessedFollowing, following, followers]);
 
   return (
     <div className="mx-auto container p-10">
@@ -61,6 +81,8 @@ export default function Home() {
             </div>
           )}
         </Dropzone>
+
+        {!hasProcessedDifference ? <p>Not Processed!</p> : <p>Processed!</p>}
 
         <Link href="/tutorial" className="underline">
           {" "}
