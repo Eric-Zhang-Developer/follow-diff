@@ -91,8 +91,8 @@ export default function Home() {
             </Link>
           </section>
         ) : (
-          <section>
-            <p className="text-2xl mb-6">Processed!</p>
+          <section className="flex flex-col items-center">
+            <p className="text-2xl mb-6">Accounts that don&apos;t follow you back - {userDifference.length} </p>
             <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>
