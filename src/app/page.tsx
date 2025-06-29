@@ -56,10 +56,12 @@ export default function Home() {
   }, [hasProcessedFollowers, hasProcessedFollowing, following, followers]);
 
   return (
-    <div className="mx-auto container p-10">
-      <main className="flex items-center justify-center flex-col gap-4 px-12">
-        <h1 className="text-5xl">Curious Who Doesn&apos;t Follow You Back?</h1>
-        <h2 className="text-xl text-center">
+    <div className="mx-auto container px-2 md:px-5 lg:px-10 py-5 md:py-10">
+      <main className="flex items-center justify-center flex-col gap-4 px-2 md:px-12">
+        <h1 className="md:text-5xl text-3xl text-center">
+          Curious Who Doesn&apos;t Follow You Back?
+        </h1>
+        <h2 className="text-lg md:text-xl text-center">
           Safely see your non-followers using your official Instagram data. Your files are processed
           right here in your browser and are never uploaded anywhere.
         </h2>
@@ -70,11 +72,11 @@ export default function Home() {
             {({ getRootProps, getInputProps }) => (
               <div
                 {...getRootProps()}
-                className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg hover:cursor-pointer"
+                className="border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-3/4 md:w-1/2 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
               >
                 <input {...getInputProps()} data-testid="file-input"></input>
                 <Upload size={50}></Upload>
-                Drag & drop your followers.json & following.json files here
+                <p className="text-center">Drag & drop your followers.json & following.json files here</p>
                 <span>or</span>
                 <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
                   Select Files
@@ -85,7 +87,7 @@ export default function Home() {
         ) : (
           <section>
             <p className="text-2xl mb-6">Processed!</p>
-            <ol className="flex flex-row flex-wrap container mx-auto gap-2.5 justify-center">
+            <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>
                   <a
