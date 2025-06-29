@@ -72,7 +72,7 @@ export default function Home() {
                 {...getRootProps()}
                 className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg hover:cursor-pointer"
               >
-                <input {...getInputProps()}></input>
+                <input {...getInputProps()} data-testid="file-input"></input>
                 <Upload size={50}></Upload>
                 Drag & drop your followers.json & following.json files here
                 <span>or</span>
@@ -87,7 +87,7 @@ export default function Home() {
             <p className="text-2xl mb-6">Processed!</p>
             <ol>
               {userDifference.map((userName) => (
-                <li key={userName}>{userName}</li>
+                <li key={userName} aria-label={userName}>{userName}</li>
               ))}
             </ol>
           </section>
