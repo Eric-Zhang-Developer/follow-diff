@@ -1,0 +1,79 @@
+{
+  "person": {
+    "name": {
+      "first": "John",
+      "last": "Doe"
+    },
+    "age": 35,
+    "isStudent": false,
+    "email": "john.doe@example.com",
+    "address": {
+      "street": "123 Main St",
+      "city": "Anytown",
+      "state": "CA",
+      "postalCode": "12345"
+    },
+    "phoneNumbers": [
+      {
+        "type": "home",
+        "number": "555-1234"
+      },
+      {
+        "type": "work",
+        "number": "555-5678"
+      }
+    ],
+    "favoriteFoods": [
+      "Pizza",
+      "Sushi",
+      "Tacos"
+    ],
+    "account": {
+      "id": "acc-123456789",
+      "status": "active",
+      "lastLogin": "2023-10-27T10:00:00Z",
+      "preferences": {
+        "theme": "dark",
+        "notifications": {
+          "email": true,
+          "sms": false,
+          "push": true
+        }
+      }
+    },
+    "metadata": null
+  },
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Super Widget",
+      "description": "A high-quality widget with many features.",
+      "price": 29.99,
+      "inStock": true,
+      "tags": ["electronics", "gadgets", "widgets"],
+      "dimensions": {
+        "length": 5.5,
+        "width": 3.0,
+        "height": 1.2
+      }
+    },
+    {
+      "id": "prod-002",
+      "name": "Mega Gizmo",
+      "description": "An even bigger and better gizmo.",
+      "price": 79.50,
+      "inStock": false,
+      "tags": ["electronics", "gizmos", "deals"],
+      "dimensions": {
+        "length": 8.0,
+        "width": 6.5,
+        "height": 2.5
+      }
+    }
+  ],
+  "apiVersion": "1.2.3",
+  "requestStatus": {
+    "code": 200,
+    "message": "OK"
+  }
+}

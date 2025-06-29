@@ -1,9 +1,60 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
 import { Github, Upload } from "lucide-react";
 import Link from "next/link";
-
+import Dropzone from "react-dropzone";
+import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
+import Compare from "@/lib/comparison";
 export default function Home() {
+  const [followers, setFollowers] = useState<string[]>([]);
+  const [following, setFollowing] = useState<string[]>([]);
+  const [userDifference, setUserDifference] = useState<string[]>([]);
+
+  const [hasProcessedFollowers, setHasProcessedFollowers] = useState(false);
+  const [hasProcessedFollowing, setHasProcessedFollowing] = useState(false);
+  const [hasProcessedDifference, setHasProcessedDifference] = useState(false);
+
+  function onDrop(acceptedFiles: File[]) {
+    acceptedFiles.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onabort = () => console.log("file reading was aborted");
+      reader.onerror = () => console.log("file reading has failed");
+      reader.onload = () => {
+        try {
+          const input = JSON.parse(reader.result as string);
+
+          const followingResult = FollowingListSchema.safeParse(input);
+          if (followingResult.success) {
+            setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
+            setHasProcessedFollowing(true);
+            return;
+          }
+
+          const followerResult = FollowerListSchema.safeParse(input);
+          if (followerResult.success) {
+            setFollowers(ExtractNamesFromJson(followerResult.data));
+            setHasProcessedFollowers(true);
+            return;
+          }
+        } catch (error) {
+          console.error("File is not a valid followers or following JSON:", error);
+        }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  // Calculate Diff
+  useEffect(() => {
+    if (hasProcessedFollowers && hasProcessedFollowing) {
+      setUserDifference(Compare(following, followers));
+      setHasProcessedDifference(true);
+    }
+  }, [hasProcessedFollowers, hasProcessedFollowing, following, followers]);
+
   return (
     <div className="mx-auto container p-10">
       <main className="flex items-center justify-center flex-col gap-4 px-12">
@@ -13,13 +64,34 @@ export default function Home() {
           right here in your browser and are never uploaded anywhere.
         </h2>
 
-        {/* Drop Zone */}
-        <div className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg hover:cursor-pointer">
-          <Upload size={50}></Upload>
-          Drag & drop your followers.json & following.json files here
-          <span>or</span>
-          <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">Select Files</button>
-        </div>
+        {!hasProcessedDifference ? (
+          // Drop Zone
+          <Dropzone onDrop={onDrop} accept={{ "application/json": [".json"] }}>
+            {({ getRootProps, getInputProps }) => (
+              <div
+                {...getRootProps()}
+                className="border-2 px-1/2 py-30 flex flex-col gap-8 items-center justify-center w-1/2 border-dashed rounded-3xl mt-12 text-lg hover:cursor-pointer"
+              >
+                <input {...getInputProps()} data-testid="file-input"></input>
+                <Upload size={50}></Upload>
+                Drag & drop your followers.json & following.json files here
+                <span>or</span>
+                <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
+                  Select Files
+                </button>
+              </div>
+            )}
+          </Dropzone>
+        ) : (
+          <section>
+            <p className="text-2xl mb-6">Processed!</p>
+            <ol>
+              {userDifference.map((userName) => (
+                <li key={userName} aria-label={userName}>{userName}</li>
+              ))}
+            </ol>
+          </section>
+        )}
 
         <Link href="/tutorial" className="underline">
           {" "}
