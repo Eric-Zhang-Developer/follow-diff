@@ -1,5 +1,9 @@
 import { z } from "zod";
 
+// =========== //
+// Backend interfaces and schemas 
+// =========== //
+
 // Using Zod
 // The reason for these interfaces is so that typescript neatly throws an error when a user
 // adds a json that is not a followers.json or following.json format
@@ -28,3 +32,14 @@ export const FollowerListSchema = z.array(ExpectedJSONSchema);
 // Types for extractNamesFromJson
 export type FollowingList = z.infer<typeof FollowingListSchema>['relationships_following'];
 export type FollowerList = z.infer<typeof FollowerListSchema>;
+
+
+// =========== //
+// Interface for Hero Section
+// =========== //
+
+export interface HeroSectionProps{
+  hasProcessedFollowers : boolean;
+  hasProcessedFollowing : boolean;
+  onDrop: (acceptedFiles: File[]) => void;
+}
