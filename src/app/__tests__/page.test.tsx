@@ -4,6 +4,7 @@ import Home from "../page";
 
 import mockFollowers from "./__fixtures__/followers.json";
 import mockFollowing from "./__fixtures__/following.json";
+import nonConformingData from "./__fixtures__/nonConformingData.json"
 
 // Since we are testing similar user flows the initial code is almost line for like the same
 
@@ -40,7 +41,7 @@ describe("User Flow", () => {
     });
 
     // =================== //
-    // Single File Uploads 
+    // Single File Uploads
     // =================== //
 
     it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
@@ -60,7 +61,7 @@ describe("User Flow", () => {
       expect(followersListUploaded).toBeInTheDocument();
     });
 
-    // This is almost the exact same as the previous test cause well its almost the exact same process to check for the banner. 
+    // This is almost the exact same as the previous test cause well its almost the exact same process to check for the banner.
     it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
       // Assemble
       render(<Home></Home>);
@@ -77,10 +78,29 @@ describe("User Flow", () => {
       const followingListUploaded = await screen.findByText("Following List Uploaded!");
       expect(followingListUploaded).toBeInTheDocument();
     });
+
+    // ============ //
+    // Error States
+    // ============ //
+
+    it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
+      // Assemble
+      render(<Home></Home>);
+      const user = userEvent.setup();
+      const nonConforming = new File([JSON.stringify(nonConformingData)], "following.json", {
+        type: "application/json",
+      });
+
+      // Act
+      const fileInput = screen.getByTestId("file-input");
+      await user.upload(fileInput, [nonConforming]);
+
+      // Assert
+      const errorFlag = await screen.findByText("Error!");
+      expect(errorFlag).toBeInTheDocument();
+    });
   });
 
-
-  
   describe("Reset Button", () => {
     it("should return me back to the drop / default section when I hit the reset button", async () => {
       render(<Home></Home>);
