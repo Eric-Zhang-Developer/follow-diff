@@ -83,20 +83,20 @@ export default function Home() {
               {({ getRootProps, getInputProps }) => (
                 <div
                   {...getRootProps()}
-                  className="border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-4/5 md:w-3/5 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
+                  className="border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-full md:w-3/5 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
                 >
                   <input {...getInputProps()} data-testid="file-input"></input>
                   <Upload size={50}></Upload>
-                  <p className="text-center">
-                    Drag & drop your
-                    <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded">
+                  <p className="text-center whitespace-normal break-words">
+                    Drag&nbsp;&amp;&nbsp;drop&nbsp;your<br />
+                    <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded break-all">
                       followers.json
                     </span>
-                    &
-                    <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded">
+                    &amp;
+                    <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded break-all">
                       following.json
-                    </span>
-                    files here
+                    </span><br />
+                    files&nbsp;here
                   </p>
                   <span>or</span>
                   <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
