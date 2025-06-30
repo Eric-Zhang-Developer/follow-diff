@@ -15,6 +15,7 @@ export default function Home() {
   const [hasProcessedFollowers, setHasProcessedFollowers] = useState(false);
   const [hasProcessedFollowing, setHasProcessedFollowing] = useState(false);
   const [hasProcessedDifference, setHasProcessedDifference] = useState(false);
+  const [errorFlag, setErrorFlag] = useState(false);
 
   // This function exists to compete the user life cycle on the page
   function handleReset() {
@@ -27,7 +28,7 @@ export default function Home() {
   }
 
   // On Drop reads files then checks them against the schemas and throws an error if broke
-  // Extremely Robust for wrong json 
+  // Extremely Robust for wrong json
   function onDrop(acceptedFiles: File[]) {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
@@ -51,7 +52,9 @@ export default function Home() {
             setHasProcessedFollowers(true);
             return;
           }
+          setErrorFlag(true);
         } catch (error) {
+          setErrorFlag(true);
           console.error("File is not a valid followers or following JSON:", error);
         }
       };
@@ -75,9 +78,18 @@ export default function Home() {
         </h1>
 
         {!hasProcessedDifference ? (
-          <HeroSection onDrop={onDrop} hasProcessedFollowers={hasProcessedFollowers} hasProcessedFollowing={hasProcessedFollowing}></HeroSection>
+          <HeroSection
+            onDrop={onDrop}
+            errorFlag={errorFlag}
+            setErrorFlag={setErrorFlag}
+            hasProcessedFollowers={hasProcessedFollowers}
+            hasProcessedFollowing={hasProcessedFollowing}
+          ></HeroSection>
         ) : (
-          <ResultsSection handleReset={handleReset} userDifference={userDifference}></ResultsSection>
+          <ResultsSection
+            handleReset={handleReset}
+            userDifference={userDifference}
+          ></ResultsSection>
         )}
       </main>
 
