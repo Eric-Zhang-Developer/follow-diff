@@ -27,7 +27,6 @@ export default function Home() {
     setUserDifference([]);
   }
 
-
   const readFileAsText = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -37,7 +36,7 @@ export default function Home() {
       reader.readAsText(file);
     });
   };
-  
+
   // On Drop reads files then checks them against the schemas and throws an error if broke
   // Extremely Robust for wrong json
   async function onDrop(acceptedFiles: File[]) {
@@ -46,9 +45,9 @@ export default function Home() {
     for (const file of acceptedFiles) {
       try {
         const fileContent = await readFileAsText(file);
-  
+
         const input = JSON.parse(fileContent);
-  
+
         const followingResult = FollowingListSchema.safeParse(input);
         if (followingResult.success) {
           setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
@@ -56,7 +55,7 @@ export default function Home() {
           foundAtLeastOneValidFile = true;
           continue;
         }
-  
+
         const followerResult = FollowerListSchema.safeParse(input);
         if (followerResult.success) {
           setFollowers(ExtractNamesFromJson(followerResult.data));
@@ -64,11 +63,9 @@ export default function Home() {
           foundAtLeastOneValidFile = true;
           continue;
         }
-      } catch (error) {
-        console.log("Failed to process file:", file.name, error);
-      }
+      } catch { /* The file failed to parse, which is fine. We do nothing and let the loop continue */ }
     }
-  
+
     if (!foundAtLeastOneValidFile) {
       setErrorFlag(true);
     }
