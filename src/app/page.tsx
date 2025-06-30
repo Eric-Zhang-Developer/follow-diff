@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
-import { Github, RotateCcw, RotateCw, Upload } from "lucide-react";
+import { Github, RotateCw, Upload } from "lucide-react";
 import Link from "next/link";
 import Dropzone from "react-dropzone";
 import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
@@ -16,12 +16,11 @@ export default function Home() {
   const [hasProcessedFollowing, setHasProcessedFollowing] = useState(false);
   const [hasProcessedDifference, setHasProcessedDifference] = useState(false);
 
-
-  // This function exists to compete the user life cycle on the page 
-  function handleReset(){
+  // This function exists to compete the user life cycle on the page
+  function handleReset() {
     setHasProcessedFollowers(false);
     setHasProcessedDifference(false);
-    setHasProcessedFollowing(false)
+    setHasProcessedFollowing(false);
     setFollowers([]);
     setFollowing([]);
     setUserDifference([]);
@@ -111,11 +110,17 @@ export default function Home() {
           </section>
         ) : (
           <section className="flex flex-col items-center">
-            <button onClick={handleReset} className="py-4 transform transition hover:rotate-90 cursor-pointer "><RotateCw size={40}></RotateCw></button>
+            <button
+              onClick={handleReset}
+              aria-label="Reset Button"
+              className="py-4 transform transition hover:rotate-90 cursor-pointer "
+            >
+              <RotateCw size={40}></RotateCw>
+            </button>
             <p className="text-2xl mb-6 text-center">
               Accounts that don&apos;t follow you back - {userDifference.length}
             </p>
-            
+
             <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>
