@@ -1,10 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Home from "../page";
+// fs and path are for the malformed json so Jest does not freak out and throw a syntax error
+import fs from 'fs';
+import path from 'path';
 
 import mockFollowers from "./__fixtures__/followers.json";
 import mockFollowing from "./__fixtures__/following.json";
 import nonConformingData from "./__fixtures__/nonConformingData.json"
+
 
 // Since we are testing similar user flows the initial code is almost line for like the same
 
@@ -83,7 +87,7 @@ describe("User Flow", () => {
     // Error States
     // ============ //
 
-    it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
+    it("should an error message to the user when uploading a single nonConforming json file", async () => {
       // Assemble
       render(<Home></Home>);
       const user = userEvent.setup();
@@ -94,6 +98,25 @@ describe("User Flow", () => {
       // Act
       const fileInput = screen.getByTestId("file-input");
       await user.upload(fileInput, [nonConforming]);
+
+      // Assert
+      const errorFlag = await screen.findByText("Error!");
+      expect(errorFlag).toBeInTheDocument();
+    });
+
+    it("should an error message to the user when uploading a single malformed json file", async () => {
+      // Assemble
+      render(<Home></Home>);
+      const user = userEvent.setup();
+
+      // This is the test case where we need fs and path due to syntax error
+      const malformedFilePath = path.join(__dirname, '__fixtures__', 'malformed.json');
+      const malformedFileContent = fs.readFileSync(malformedFilePath, 'utf-8');
+      const malformedFile = new File([malformedFileContent], 'malformed.json', { type: 'application/json' });
+
+      // Act
+      const fileInput = screen.getByTestId("file-input");
+      await user.upload(fileInput, [malformedFile]);
 
       // Assert
       const errorFlag = await screen.findByText("Error!");
