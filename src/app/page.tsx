@@ -86,6 +86,12 @@ export default function Home() {
                   className="border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-full md:w-3/5 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
                 >
                   <input {...getInputProps()} data-testid="file-input"></input>
+
+                  {/* Conditional rendering to show if a user has uploaded single files*/}
+                  {hasProcessedFollowers && <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl">Followers List Uploaded!</div>}
+
+                  {hasProcessedFollowing && <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl">Following List Uploaded!</div>}
+
                   <Upload size={50}></Upload>
                   <p className="text-center whitespace-normal break-words">
                     Drag&nbsp;&amp;&nbsp;drop&nbsp;your<br />
