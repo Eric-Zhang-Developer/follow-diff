@@ -100,7 +100,7 @@ describe("User Flow", () => {
       await user.upload(fileInput, [nonConforming]);
 
       // Assert
-      const errorFlag = await screen.findByText("Error!");
+      const errorFlag = await screen.findByText("Upload Failed!");
       expect(errorFlag).toBeInTheDocument();
     });
 
@@ -119,7 +119,7 @@ describe("User Flow", () => {
       await user.upload(fileInput, [malformedFile]);
 
       // Assert
-      const errorFlag = await screen.findByText("Error!");
+      const errorFlag = await screen.findByText("Upload Failed!");
       expect(errorFlag).toBeInTheDocument();
     });
   });
