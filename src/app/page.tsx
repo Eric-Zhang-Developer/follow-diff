@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
-import { Github, RotateCw} from "lucide-react";
+import { Github } from "lucide-react";
 import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
 import Compare from "@/lib/comparison";
 import HeroSection from "@/components/HeroSection";
+import ResultsSection from "@/components/ResultsSection";
 export default function Home() {
   const [followers, setFollowers] = useState<string[]>([]);
   const [following, setFollowing] = useState<string[]>([]);
@@ -75,33 +76,7 @@ export default function Home() {
         {!hasProcessedDifference ? (
           <HeroSection onDrop={onDrop} hasProcessedFollowers={hasProcessedFollowers} hasProcessedFollowing={hasProcessedFollowing}></HeroSection>
         ) : (
-          <section className="flex flex-col items-center">
-            <button
-              onClick={handleReset}
-              aria-label="Reset Button"
-              className="py-4 transform transition hover:rotate-90 cursor-pointer "
-            >
-              <RotateCw size={40}></RotateCw>
-            </button>
-            <p className="text-2xl mb-6 text-center">
-              Accounts that don&apos;t follow you back - {userDifference.length}
-            </p>
-
-            <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
-              {userDifference.map((userName) => (
-                <li key={userName} aria-label={userName}>
-                  <a
-                    className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border cursor-pointer transition transform hover:scale-110"
-                    href={`https://www.instagram.com/${userName}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {userName}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </section>
+          <ResultsSection handleReset={handleReset} userDifference={userDifference}></ResultsSection>
         )}
       </main>
 

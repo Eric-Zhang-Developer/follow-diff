@@ -35,11 +35,16 @@ export type FollowerList = z.infer<typeof FollowerListSchema>;
 
 
 // =========== //
-// Interface for Hero Section
+// Component Interfaces
 // =========== //
 
 export interface HeroSectionProps{
   hasProcessedFollowers : boolean;
   hasProcessedFollowing : boolean;
   onDrop: (acceptedFiles: File[]) => void;
+}
+
+export interface ResultsSectionProps{
+  handleReset: () => void;
+  userDifference: string[];
 }
