@@ -65,8 +65,7 @@ export default function Home() {
           continue;
         }
       } catch (error) {
-
-        console.error("Failed to process file:", file.name, error);
+        console.log("Failed to process file:", file.name, error);
       }
     }
   
