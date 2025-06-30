@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
-import { Github, Upload } from "lucide-react";
+import { Github, RotateCcw, Upload } from "lucide-react";
 import Link from "next/link";
 import Dropzone from "react-dropzone";
 import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
@@ -15,6 +15,17 @@ export default function Home() {
   const [hasProcessedFollowers, setHasProcessedFollowers] = useState(false);
   const [hasProcessedFollowing, setHasProcessedFollowing] = useState(false);
   const [hasProcessedDifference, setHasProcessedDifference] = useState(false);
+
+
+  // This function exists to compete the user life cycle on the page 
+  function handleReset(){
+    setHasProcessedFollowers(false);
+    setHasProcessedDifference(false);
+    setHasProcessedFollowing(false)
+    setFollowers([]);
+    setFollowing([]);
+    setUserDifference([]);
+  }
 
   function onDrop(acceptedFiles: File[]) {
     acceptedFiles.forEach((file) => {
@@ -81,7 +92,7 @@ export default function Home() {
                       followers.json
                     </span>
                     &
-                    <span className="bg-slate-100 text-sm text-font-mono mx-1 px-2 py-1 rounded">
+                    <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded">
                       following.json
                     </span>
                     files here
@@ -100,9 +111,11 @@ export default function Home() {
           </section>
         ) : (
           <section className="flex flex-col items-center">
+            <button onClick={handleReset}><RotateCcw></RotateCcw></button>
             <p className="text-2xl mb-6">
-              Accounts that don&apos;t follow you back - {userDifference.length}{" "}
+              Accounts that don&apos;t follow you back - {userDifference.length}
             </p>
+            
             <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>
