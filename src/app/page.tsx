@@ -27,39 +27,52 @@ export default function Home() {
     setUserDifference([]);
   }
 
-  // On Drop reads files then checks them against the schemas and throws an error if broke
-  // Extremely Robust for wrong json
-  function onDrop(acceptedFiles: File[]) {
-    acceptedFiles.forEach((file) => {
+
+  const readFileAsText = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
       const reader = new FileReader();
-
-      reader.onabort = () => console.log("file reading was aborted");
-      reader.onerror = () => console.log("file reading has failed");
-      reader.onload = () => {
-        try {
-          const input = JSON.parse(reader.result as string);
-
-          const followingResult = FollowingListSchema.safeParse(input);
-          if (followingResult.success) {
-            setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
-            setHasProcessedFollowing(true);
-            return;
-          }
-
-          const followerResult = FollowerListSchema.safeParse(input);
-          if (followerResult.success) {
-            setFollowers(ExtractNamesFromJson(followerResult.data));
-            setHasProcessedFollowers(true);
-            return;
-          }
-          setErrorFlag(true);
-        } catch (error) {
-          setErrorFlag(true);
-          console.error("File is not a valid followers or following JSON:", error);
-        }
-      };
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = () => reject(reader.error);
+      reader.onabort = () => reject(new Error("File reading was aborted."));
       reader.readAsText(file);
     });
+  };
+  
+  // On Drop reads files then checks them against the schemas and throws an error if broke
+  // Extremely Robust for wrong json
+  async function onDrop(acceptedFiles: File[]) {
+    let foundAtLeastOneValidFile = false;
+
+    for (const file of acceptedFiles) {
+      try {
+        const fileContent = await readFileAsText(file);
+  
+        const input = JSON.parse(fileContent);
+  
+        const followingResult = FollowingListSchema.safeParse(input);
+        if (followingResult.success) {
+          setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
+          setHasProcessedFollowing(true);
+          foundAtLeastOneValidFile = true;
+          continue;
+        }
+  
+        const followerResult = FollowerListSchema.safeParse(input);
+        if (followerResult.success) {
+          setFollowers(ExtractNamesFromJson(followerResult.data));
+          setHasProcessedFollowers(true);
+          foundAtLeastOneValidFile = true;
+          continue;
+        }
+      } catch (error) {
+
+        console.error("Failed to process file:", file.name, error);
+      }
+    }
+  
+    if (!foundAtLeastOneValidFile) {
+      setErrorFlag(true);
+    }
   }
 
   // Calculate Diff
