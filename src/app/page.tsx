@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { FollowerListSchema, FollowingListSchema } from "@/lib/types";
-import { Github, RotateCcw, Upload } from "lucide-react";
+import { Github, RotateCcw, RotateCw, Upload } from "lucide-react";
 import Link from "next/link";
 import Dropzone from "react-dropzone";
 import ExtractNamesFromJson from "@/lib/extractNamesFromJson";
@@ -111,8 +111,8 @@ export default function Home() {
           </section>
         ) : (
           <section className="flex flex-col items-center">
-            <button onClick={handleReset}><RotateCcw></RotateCcw></button>
-            <p className="text-2xl mb-6">
+            <button onClick={handleReset} className="py-4 transform transition hover:rotate-90 cursor-pointer "><RotateCw size={40}></RotateCw></button>
+            <p className="text-2xl mb-6 text-center">
               Accounts that don&apos;t follow you back - {userDifference.length}
             </p>
             
