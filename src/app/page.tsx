@@ -76,7 +76,15 @@ export default function Home() {
                   <input {...getInputProps()} data-testid="file-input"></input>
                   <Upload size={50}></Upload>
                   <p className="text-center">
-                    Drag & drop your followers.json & following.json files here
+                    Drag & drop your
+                    <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded">
+                      followers.json
+                    </span>
+                    &
+                    <span className="bg-slate-100 text-sm text-font-mono mx-1 px-2 py-1 rounded">
+                      following.json
+                    </span>
+                    files here
                   </p>
                   <span>or</span>
                   <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
@@ -92,7 +100,9 @@ export default function Home() {
           </section>
         ) : (
           <section className="flex flex-col items-center">
-            <p className="text-2xl mb-6">Accounts that don&apos;t follow you back - {userDifference.length} </p>
+            <p className="text-2xl mb-6">
+              Accounts that don&apos;t follow you back - {userDifference.length}{" "}
+            </p>
             <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
               {userDifference.map((userName) => (
                 <li key={userName} aria-label={userName}>
