@@ -39,6 +39,10 @@ describe("User Flow", () => {
       expect(mutualFollowerItem).not.toBeInTheDocument();
     });
 
+    // =================== //
+    // Single File Uploads 
+    // =================== //
+
     it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
       // Assemble
       render(<Home></Home>);
@@ -55,8 +59,28 @@ describe("User Flow", () => {
       const followersListUploaded = await screen.findByText("Followers List Uploaded!");
       expect(followersListUploaded).toBeInTheDocument();
     });
+
+    // This is almost the exact same as the previous test cause well its almost the exact same process to check for the banner. 
+    it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
+      // Assemble
+      render(<Home></Home>);
+      const user = userEvent.setup();
+      const following = new File([JSON.stringify(mockFollowing)], "following.json", {
+        type: "application/json",
+      });
+
+      // Act
+      const fileInput = screen.getByTestId("file-input");
+      await user.upload(fileInput, [following]);
+
+      // Assert
+      const followingListUploaded = await screen.findByText("Following List Uploaded!");
+      expect(followingListUploaded).toBeInTheDocument();
+    });
   });
 
+
+  
   describe("Reset Button", () => {
     it("should return me back to the drop / default section when I hit the reset button", async () => {
       render(<Home></Home>);
