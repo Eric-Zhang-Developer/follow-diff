@@ -88,7 +88,7 @@ export default function Home() {
                   <input {...getInputProps()} data-testid="file-input"></input>
 
                   {/* Conditional rendering to show if a user has uploaded single files*/}
-                  {hasProcessedFollowers && <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl">Followers List Uploaded!</div>}
+                  {hasProcessedFollowers && <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl" aria-label="Followers List Uploaded!">Followers List Uploaded!</div>}
 
                   {hasProcessedFollowing && <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl">Following List Uploaded!</div>}
 

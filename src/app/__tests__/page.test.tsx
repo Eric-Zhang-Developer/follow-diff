@@ -38,6 +38,23 @@ describe("User Flow", () => {
       const mutualFollowerItem = screen.queryByRole("listitem", { name: /friend_alice/i });
       expect(mutualFollowerItem).not.toBeInTheDocument();
     });
+
+    it("should display the Followers List Uploaded! banner when uploading a single proper followers.json file", async () => {
+      // Assemble
+      render(<Home></Home>);
+      const user = userEvent.setup();
+      const followers = new File([JSON.stringify(mockFollowers)], "followers.json", {
+        type: "application/json",
+      });
+
+      // Act
+      const fileInput = screen.getByTestId("file-input");
+      await user.upload(fileInput, [followers]);
+
+      // Assert
+      const followersListUploaded = await screen.findByText("Followers List Uploaded!");
+      expect(followersListUploaded).toBeInTheDocument();
+    });
   });
 
   describe("Reset Button", () => {
@@ -65,7 +82,6 @@ describe("User Flow", () => {
       // Assert (Final)
       const fileInputAfterReset = await screen.findByTestId("file-input");
       expect(fileInputAfterReset).toBeInTheDocument();
-
     });
   });
 });
