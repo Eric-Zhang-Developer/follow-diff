@@ -71,6 +71,8 @@ export default function Home() {
         <h1 className="md:text-5xl text-3xl text-center">
           Curious Who Doesn&apos;t Follow You Back?
         </h1>
+
+        {/* TODO: Refactor this conditional rendering into separate components to improve readability. For now, leaving it in-line to focus on styling and theming. */}
         {!hasProcessedDifference ? (
           <section className="flex flex-col container items-center gap-4">
             <h2 className="text-lg md:text-xl text-center">
