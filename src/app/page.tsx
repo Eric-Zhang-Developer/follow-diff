@@ -26,6 +26,8 @@ export default function Home() {
     setUserDifference([]);
   }
 
+  // On Drop reads files then checks them against the schemas and throws an error if broke
+  // Extremely Robust for wrong json 
   function onDrop(acceptedFiles: File[]) {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
@@ -72,7 +74,6 @@ export default function Home() {
           Curious Who Doesn&apos;t Follow You Back?
         </h1>
 
-        {/* TODO: Refactor this conditional rendering into separate components to improve readability. For now, leaving it in-line to focus on styling and theming. */}
         {!hasProcessedDifference ? (
           <HeroSection onDrop={onDrop} hasProcessedFollowers={hasProcessedFollowers} hasProcessedFollowing={hasProcessedFollowing}></HeroSection>
         ) : (
@@ -80,6 +81,7 @@ export default function Home() {
         )}
       </main>
 
+      {/* Disclaimer Footer */}
       <a
         href="https://github.com/Eric-Zhang-Developer/follow-diff"
         target="_blank"
