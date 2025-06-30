@@ -43,11 +43,18 @@ export default function HeroSection({
             )}
 
             {errorFlag ? (
-              <section className="flex flex-col items-center gap-2">
-                <div>Error!</div>
-                <button onClick={() => setErrorFlag(false)} className="border-2 px-2 py-1 rounded-2xl">Try Again</button>
+              <section className="flex flex-col items-center gap-4 md:gap-6 text-center">
+                <h2 className="text-3xl">Upload Failed!</h2>
+                <p className="text-xl">
+                  The file doesn&apos;t look like a proper Instagram followers.json or following.json file
+                </p>
+                <button
+                  onClick={() => setErrorFlag(false)}
+                  className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105"
+                >
+                  Try Again
+                </button>
               </section>
-              
             ) : (
               <section className="flex flex-col items-center gap-4 md:gap-8">
                 <Upload size={50}></Upload>
