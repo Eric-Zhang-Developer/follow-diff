@@ -18,7 +18,7 @@ export default function HeroSection({
         Safely see your non-followers using your official Instagram data. Your files are processed
         right here in your browser and are never uploaded anywhere.
       </h2>
-      <Dropzone onDrop={onDrop} accept={{ "application/json": [".json"] }}>
+      <Dropzone onDrop={onDrop}  disabled={errorFlag} accept={{ "application/json": [".json"] }}>
         {({ getRootProps, getInputProps }) => (
           <div
             {...getRootProps()}
