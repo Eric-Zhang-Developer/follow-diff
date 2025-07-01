@@ -27,10 +27,10 @@ You can try out the application here: [https://follow-diff.vercel.app/](https://
 * **Robust Type-Safety**: Employs TypeScript and Zod for schema validation to ensure the data from Instagram's export files is correctly parsed and handled, preventing runtime errors and improving maintainability.
 
 * **Comprehensive Testing**: Includes a suite of tests using Jest and React Testing Library to ensure the reliability of core logic and UI components. The test suites achieve the following coverage:
-    * **Statements**: 94.64%
-    * **Branches**: 88.88%
-    * **Functions**: 83.33%
-    * **Lines**: 98.03%
+    * **Statements**: 96.25%
+    * **Branches**: 100.00%
+    * **Functions**: 82.35%
+    * **Lines**: 98.64%
 
 
 ## Setup
