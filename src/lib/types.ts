@@ -42,6 +42,8 @@ export interface HeroSectionProps{
   hasProcessedFollowers : boolean;
   hasProcessedFollowing : boolean;
   onDrop: (acceptedFiles: File[]) => void;
+  errorFlag : boolean;
+  setErrorFlag : (bool : boolean) => void;
 }
 
 export interface ResultsSectionProps{
