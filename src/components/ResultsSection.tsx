@@ -13,14 +13,14 @@ export default function ResultsSection({handleReset, userDifference} : ResultsSe
         <RotateCw size={40}></RotateCw>
       </button>
       <p className="text-2xl mb-6 text-center">
-        Accounts that don&apos;t follow you back - {userDifference.length}
+        Accounts that don&apos;t follow you back - <span className="text-accent">{userDifference.length}</span>
       </p>
 
       <ol className="flex flex-row flex-wrap container mx-auto  gap-1.5 sm:gap-2.5 justify-center">
         {userDifference.map((userName) => (
           <li key={userName} aria-label={userName}>
             <a
-              className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border cursor-pointer transition transform hover:scale-110"
+              className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border cursor-pointer transition transform hover:scale-110 border-accent"
               href={`https://www.instagram.com/${userName}/`}
               target="_blank"
               rel="noopener noreferrer"
