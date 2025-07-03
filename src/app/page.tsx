@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div className="px-2 md:px-4 pt-5 pb-4 md:pt-10 flex flex-col min-h-screen">
       <main className="container mx-auto flex items-center flex-col gap-4 px-2 md:px-12 flex-grow">
-        <h1 className="md:text-5xl text-3xl text-center">
+        <h1 className="md:text-5xl text-3xl text-center text-primary">
           Curious Who Doesn&apos;t Follow You Back?
         </h1>
 
@@ -108,7 +108,7 @@ export default function Home() {
         href="https://github.com/Eric-Zhang-Developer/follow-diff"
         target="_blank"
         rel="noopener noreferrer"
-        className="bottom-0 right-0 flex flex-row gap-2 hover:scale-110 transition self-center md:self-end mt-4 lg:mt-0"
+        className="bottom-0 right-0 flex flex-row gap-2 hover:scale-110 transition self-center md:self-end mt-4 lg:mt-0 text-secondary"
       >
         Open Source & Privacy-First <Github></Github>
       </a>
