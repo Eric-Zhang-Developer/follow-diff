@@ -5,6 +5,11 @@
   --foreground: #171717;
 }
 
+@theme {
+  --color-primary: #4a4a4a;
+  --color-secondary: #6b6b6b;
+  --color-accent: #ff7e5f;
+}
 
 
 body {
