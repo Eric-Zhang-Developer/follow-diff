@@ -81,9 +81,9 @@ export default function Home() {
   }, [hasProcessedFollowers, hasProcessedFollowing, following, followers]);
 
   return (
-    <div className="px-2 md:px-4 pt-5 pb-4 md:pt-10 flex flex-col min-h-screen">
+    <div className="px-2 md:px-4 pt-5 pb-4 md:pt-10 flex flex-col min-h-screen font-text">
       <main className="container mx-auto flex items-center flex-col gap-4 px-2 md:px-12 flex-grow">
-        <h1 className="md:text-5xl text-3xl text-center text-primary">
+        <h1 className="md:text-5xl text-3xl text-center text-primary font-main">
           Curious Who Doesn&apos;t Follow You Back?
         </h1>
 

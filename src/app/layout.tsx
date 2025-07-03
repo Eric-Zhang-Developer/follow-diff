@@ -1,5 +1,16 @@
 import "./globals.css";
+import { Inter, Lora } from "next/font/google"
 
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+})
+
+const lora = Lora({
+  subsets: ['latin'],
+  variable: "--font-lora"
+})
 
 export const metadata = {
   title: "Follower Diff - See Who Doesn't Follow You Back",
@@ -15,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+      <body className={`${inter.variable} ${lora.variable}`}
       >
         {children}
       </body>

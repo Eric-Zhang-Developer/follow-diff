@@ -14,10 +14,10 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="flex flex-col container items-center gap-4 text-accent">
-      <h2 className="text-lg md:text-xl text-center text-secondary">
+      <p className="text-lg md:text-xl text-center text-secondary">
         Safely see your non-followers using your official Instagram data. Your files are processed
         right here in your browser and are never uploaded anywhere.
-      </h2>
+      </p>
       <Dropzone onDrop={onDrop}  disabled={errorFlag} accept={{ "application/json": [".json"] }}>
         {({ getRootProps, getInputProps }) => (
           <div
