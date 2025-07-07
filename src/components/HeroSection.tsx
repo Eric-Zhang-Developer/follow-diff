@@ -29,7 +29,7 @@ export default function HeroSection({
             {/* Conditional rendering to show if a user has uploaded single files*/}
             {hasProcessedFollowers && (
               <div
-                className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl"
+                className="bg-light-accent px-5 md:px-20 py-2 border-1 rounded-2xl border-accent"
                 aria-label="Followers List Uploaded!"
               >
                 Followers List Uploaded!
@@ -37,7 +37,7 @@ export default function HeroSection({
             )}
 
             {hasProcessedFollowing && (
-              <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl">
+              <div className="bg-light-accent px-5 md:px-20 py-2 border-1 rounded-2xl border-accent">
                 Following List Uploaded!
               </div>
             )}

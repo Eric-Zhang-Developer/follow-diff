@@ -10,6 +10,7 @@
   --color-primary: #333333;
   --color-secondary: #525252;
   --color-accent: #FF6C47;
+  --color-light-accent: #FFDED6;
 
   --font-main: var(--font-lora);
   --font-text: var(--font-inter);
