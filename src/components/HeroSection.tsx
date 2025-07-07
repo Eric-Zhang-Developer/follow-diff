@@ -72,7 +72,7 @@ export default function HeroSection({
                   files&nbsp;here
                 </p>
                 <span className="text-secondary">or</span>
-                <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
+                <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105 bg-light-accent">
                   Select Files
                 </button>
               </section>
