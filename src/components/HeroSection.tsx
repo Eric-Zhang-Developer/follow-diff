@@ -49,14 +49,14 @@ export default function HeroSection({
 
             {errorFlag ? (
               <section className="text-primary flex flex-col items-center gap-4 text-center md:gap-6">
-                <h2 className="text-3xl">Upload Failed!</h2>
+                <h2 className="text-3xl font-main">Upload Failed!</h2>
                 <p className="text-xl">
                   The file doesn&apos;t look like a proper Instagram
                   followers.json or following.json file
                 </p>
                 <button
                   onClick={() => setErrorFlag(false)}
-                  className="rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer"
+                  className="rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer text-accent bg-light-accent"
                 >
                   Try Again
                 </button>
