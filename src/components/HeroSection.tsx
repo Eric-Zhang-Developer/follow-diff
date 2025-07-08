@@ -13,23 +13,28 @@ export default function HeroSection({
   setErrorFlag,
 }: HeroSectionProps) {
   return (
-    <section className="flex flex-col container items-center gap-4">
-      <h2 className="text-lg md:text-xl text-center">
-        Safely see your non-followers using your official Instagram data. Your files are processed
-        right here in your browser and are never uploaded anywhere.
-      </h2>
-      <Dropzone onDrop={onDrop}  disabled={errorFlag} accept={{ "application/json": [".json"] }}>
+    <section className="text-accent container flex flex-col items-center gap-4">
+      <p className="text-secondary text-center text-lg md:text-xl">
+        Safely see your non-followers using your official Instagram data. Your
+        files are processed right here in your browser and are never uploaded
+        anywhere.
+      </p>
+      <Dropzone
+        onDrop={onDrop}
+        disabled={errorFlag}
+        accept={{ "application/json": [".json"] }}
+      >
         {({ getRootProps, getInputProps }) => (
           <div
             {...getRootProps()}
-            className="border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-full md:w-3/5 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
+            className="mt-6 flex w-full flex-col items-center justify-center gap-4 rounded-3xl border-2 border-dashed px-2 py-10 text-lg shadow-md hover:cursor-pointer md:mt-12 md:w-3/5 md:gap-8 md:px-10 md:py-30"
           >
             <input {...getInputProps()} data-testid="file-input"></input>
 
             {/* Conditional rendering to show if a user has uploaded single files*/}
             {hasProcessedFollowers && (
               <div
-                className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl"
+                className="bg-light-accent border-accent rounded-2xl border-1 px-5 py-2 md:px-20"
                 aria-label="Followers List Uploaded!"
               >
                 Followers List Uploaded!
@@ -37,20 +42,21 @@ export default function HeroSection({
             )}
 
             {hasProcessedFollowing && (
-              <div className="bg-slate-200 px-5 md:px-20 py-2 border-2 rounded-2xl">
+              <div className="bg-light-accent border-accent rounded-2xl border-1 px-5 py-2 md:px-20">
                 Following List Uploaded!
               </div>
             )}
 
             {errorFlag ? (
-              <section className="flex flex-col items-center gap-4 md:gap-6 text-center">
-                <h2 className="text-3xl">Upload Failed!</h2>
+              <section className="text-primary flex flex-col items-center gap-4 text-center md:gap-6">
+                <h2 className="text-3xl font-main">Upload Failed!</h2>
                 <p className="text-xl">
-                  The file doesn&apos;t look like a proper Instagram followers.json or following.json file
+                  The file doesn&apos;t look like a proper Instagram
+                  followers.json or following.json file
                 </p>
                 <button
                   onClick={() => setErrorFlag(false)}
-                  className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105"
+                  className="rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer text-accent bg-light-accent"
                 >
                   Try Again
                 </button>
@@ -58,21 +64,21 @@ export default function HeroSection({
             ) : (
               <section className="flex flex-col items-center gap-4 md:gap-8">
                 <Upload size={50}></Upload>
-                <p className="text-center whitespace-normal break-words">
+                <p className="text-primary text-center break-words whitespace-normal">
                   Drag&nbsp;&amp;&nbsp;drop&nbsp;your
                   <br />
-                  <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded break-all">
+                  <span className="mx-1 rounded bg-slate-100 px-2 py-1 font-mono text-sm break-all">
                     followers.json
                   </span>
                   &amp;
-                  <span className="bg-slate-100 text-sm font-mono mx-1 px-2 py-1 rounded break-all">
+                  <span className="mx-1 rounded bg-slate-100 px-2 py-1 font-mono text-sm break-all">
                     following.json
                   </span>
                   <br />
                   files&nbsp;here
                 </p>
-                <span>or</span>
-                <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105">
+                <span className="text-secondary">or</span>
+                <button className="bg-light-accent rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer">
                   Select Files
                 </button>
               </section>

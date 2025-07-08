@@ -51,7 +51,9 @@ export default function Home() {
 
         const followingResult = FollowingListSchema.safeParse(input);
         if (followingResult.success) {
-          setFollowing(ExtractNamesFromJson(followingResult.data.relationships_following));
+          setFollowing(
+            ExtractNamesFromJson(followingResult.data.relationships_following),
+          );
           setHasProcessedFollowing(true);
           foundAtLeastOneValidFile = true;
           continue;
@@ -64,7 +66,9 @@ export default function Home() {
           foundAtLeastOneValidFile = true;
           continue;
         }
-      } catch { /* The file failed to parse, which is fine. We do nothing and let the loop continue */ }
+      } catch {
+        /* The file failed to parse, which is fine. We do nothing and let the loop continue */
+      }
     }
 
     if (!foundAtLeastOneValidFile) {
@@ -81,9 +85,9 @@ export default function Home() {
   }, [hasProcessedFollowers, hasProcessedFollowing, following, followers]);
 
   return (
-    <div className="px-2 md:px-4 pt-5 pb-4 md:pt-10 flex flex-col min-h-screen">
-      <main className="container mx-auto flex items-center flex-col gap-4 px-2 md:px-12 flex-grow">
-        <h1 className="md:text-5xl text-3xl text-center">
+    <div className="font-text flex min-h-screen flex-col px-2 pt-5 pb-4 md:px-4 md:pt-10">
+      <main className="container mx-auto flex flex-grow flex-col items-center gap-4 px-2 md:px-12">
+        <h1 className="text-primary font-main text-center text-3xl md:text-5xl">
           Curious Who Doesn&apos;t Follow You Back?
         </h1>
 
@@ -108,7 +112,7 @@ export default function Home() {
         href="https://github.com/Eric-Zhang-Developer/follow-diff"
         target="_blank"
         rel="noopener noreferrer"
-        className="bottom-0 right-0 flex flex-row gap-2 hover:scale-110 transition self-center md:self-end mt-4 lg:mt-0"
+        className="text-secondary right-0 bottom-0 mt-4 flex flex-row gap-2 self-center transition hover:scale-110 md:self-end lg:mt-0"
       >
         Open Source & Privacy-First <Github></Github>
       </a>
