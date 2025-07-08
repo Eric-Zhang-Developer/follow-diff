@@ -20,7 +20,7 @@ export default function ResultsSection({handleReset, userDifference} : ResultsSe
         {userDifference.map((userName) => (
           <li key={userName} aria-label={userName}>
             <a
-              className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border cursor-pointer transition transform hover:scale-110 border-accent"
+              className="text-s m-1 inline-block rounded-full border-2 border-l-8 bg-slate-100 px-3 py-1 text-border cursor-pointer transition transform hover:scale-110 border-accent shadow-lg"
               href={`https://www.instagram.com/${userName}/`}
               target="_blank"
               rel="noopener noreferrer"

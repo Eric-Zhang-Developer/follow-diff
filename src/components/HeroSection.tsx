@@ -22,7 +22,7 @@ export default function HeroSection({
         {({ getRootProps, getInputProps }) => (
           <div
             {...getRootProps()}
-            className=" border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-full md:w-3/5 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
+            className="shadow-md border-2 px-2 md:px-10 py-10 md:py-30 flex flex-col gap-4 md:gap-8 items-center justify-center w-full md:w-3/5 border-dashed rounded-3xl  mt-6 md:mt-12 text-lg hover:cursor-pointer"
           >
             <input {...getInputProps()} data-testid="file-input"></input>
 
@@ -43,14 +43,14 @@ export default function HeroSection({
             )}
 
             {errorFlag ? (
-              <section className="flex flex-col items-center gap-4 md:gap-6 text-center text-primary">
+              <section className="flex flex-col items-center gap-4 md:gap-6 text-center text-primary shadow-sm">
                 <h2 className="text-3xl">Upload Failed!</h2>
                 <p className="text-xl">
                   The file doesn&apos;t look like a proper Instagram followers.json or following.json file
                 </p>
                 <button
                   onClick={() => setErrorFlag(false)}
-                  className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105"
+                  className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105 shadow-sm"
                 >
                   Try Again
                 </button>
@@ -72,7 +72,7 @@ export default function HeroSection({
                   files&nbsp;here
                 </p>
                 <span className="text-secondary">or</span>
-                <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105 bg-light-accent">
+                <button className="border-1 px-4 py-2 text-lg rounded-xl hover:cursor-pointer transition hover:scale-105 bg-light-accent shadow-sm">
                   Select Files
                 </button>
               </section>
