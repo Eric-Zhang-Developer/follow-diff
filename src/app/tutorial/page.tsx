@@ -17,43 +17,29 @@ export default function Tutorial() {
         </h1>
 
         <section className="space-y-4">
-          <h2 className="text-2xl font-main ">Step 1</h2>
+          <h2 className="font-main text-2xl">Step 1</h2>
           <ol className="list-decimal space-y-2 pl-6 text-lg">
-            <li>
-              Open Instagram on your mobile device or web browser
-            </li>
-            <li>
-              Go to your profile and tap the menu icon (three lines)
-            </li>
-            <li>
-              Select Settings and Privacy
-            </li>
-            <li>
-              Scroll down and tap Download your information
-            </li>
-            <li>
-              Select Request a download
-            </li>
-            <li>
-              Choose JSON as the format
-            </li>
-            <li>
-              Select Followers and following at minimum
-            </li>
-            <li>
-              Submit your request 
-            </li>
+            <li>Open Instagram on your mobile device or web browser</li>
+            <li>Go to your profile and tap the menu icon (three lines)</li>
+            <li>Select Settings and Privacy</li>
+            <li>Scroll down and tap Download your information</li>
+            <li>Select Request a download</li>
+            <li>Choose JSON as the format</li>
+            <li>Select Followers and following at minimum</li>
+            <li>Submit your request</li>
           </ol>
         </section>
-                <h1 className="font-main text-3xl md:text-5xl">
+        <h1 className="font-main text-3xl md:text-5xl">
           How to Get Your Instagram Data Files
         </h1>
 
         <section className="space-y-4">
-          <h2 className="text-2xl font-main ">Step 2</h2>
+          <h2 className="font-main text-2xl">Step 2</h2>
         </section>
 
-
+        <section className="space-y-4">
+          <h2 className="font-main text-2xl">Step 3</h2>
+        </section>
       </main>
     </div>
   );
