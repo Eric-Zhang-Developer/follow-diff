@@ -37,6 +37,11 @@ export default function Tutorial() {
 
         <section className="space-y-4">
           <h2 className="font-main text-2xl">Step 3</h2>
+          <li>Once notified, go back to Settings and privacy → Download your information</li>
+          <li>Download your data package</li>
+          <li>Unzip the downloaded file</li>
+          <li>Navigate to the followers_and_following folder</li>
+          <li>Find the followers.json and following.json files</li>
         </section>
       </main>
     </div>
