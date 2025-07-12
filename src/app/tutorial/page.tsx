@@ -32,16 +32,25 @@ export default function Tutorial() {
 
         <section className="space-y-4">
           <h2 className="font-main text-2xl">Step 2</h2>
-          <p>Instagram will process your request, which can take up to 48 hours. You&apos;ll receive a notification and email when your data is ready to download.</p>
+          <p className="text-lg">
+            Instagram will process your request, which can take up to 48 hours.
+            You&apos;ll receive a notification and email when your data is ready
+            to download.
+          </p>
         </section>
 
         <section className="space-y-4">
           <h2 className="font-main text-2xl">Step 3</h2>
-          <li>Once notified, go back to Settings and privacy → Download your information</li>
-          <li>Download your data package</li>
-          <li>Unzip the downloaded file</li>
-          <li>Navigate to the followers_and_following folder</li>
-          <li>Find the followers.json and following.json files</li>
+          <ol className="list-decimal space-y-2 pl-6 text-lg">
+            <li>
+              Once notified, go back to Settings and privacy → Download your
+              information
+            </li>
+            <li>Download your data package</li>
+            <li>Unzip the downloaded file</li>
+            <li>Navigate to the followers_and_following folder</li>
+            <li>Find the followers.json and following.json files</li>
+          </ol>
         </section>
       </main>
     </div>
