@@ -29,12 +29,10 @@ export default function Tutorial() {
             <li>Submit your request</li>
           </ol>
         </section>
-        <h1 className="font-main text-3xl md:text-5xl">
-          How to Get Your Instagram Data Files
-        </h1>
 
         <section className="space-y-4">
           <h2 className="font-main text-2xl">Step 2</h2>
+          <p>Instagram will process your request, which can take up to 48 hours. You&apos;ll receive a notification and email when your data is ready to download.</p>
         </section>
 
         <section className="space-y-4">
