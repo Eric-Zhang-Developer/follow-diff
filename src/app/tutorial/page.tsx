@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 export default function Tutorial() {
   return (
     <div className="font-text text-primary flex min-h-screen flex-col px-2 pt-5 pb-4 md:px-4 md:pt-10">
-      <main className="container mx-auto flex flex-grow flex-col items-start gap-4 px-2 md:px-12">
+      <main className="container mx-auto flex flex-grow flex-col items-start gap-8 px-2 md:px-24">
         <Link
           href="/"
           className="inline-flex items-center self-start p-4 text-lg"
