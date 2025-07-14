@@ -52,6 +52,13 @@ export default function Tutorial() {
             <li>Find the followers.json and following.json files</li>
           </ol>
         </section>
+
+        <Link
+          href="/"
+          className="text-accent bg-light-accent rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer"
+        >
+          Return to Home 
+        </Link>
       </main>
     </div>
   );
