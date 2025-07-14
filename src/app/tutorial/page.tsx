@@ -33,7 +33,7 @@ export default function Tutorial() {
               Select <strong>Download your information</strong>
             </li>
             <li>
-              Tap the <strong>Download or transform information</strong> button
+              Tap the <strong>Download or transfer information</strong> button
             </li>
             <li>
               Select the <strong>Some of your information</strong> button
