@@ -53,7 +53,7 @@ export default function Tutorial() {
           </ol>
         </section>
 
-        <section className="bg-light-accent border-1 border-accent rounded-3xl py-6 px-4 space-y-2">
+        <section className="bg-light-accent border-1 border-accent rounded-3xl py-6 px-4 space-y-2 shadow-md">
           <p className="font-main text-2xl font-semibold">Privacy Note</p>
           <p className="text-lg text-secondary">Remember, this application processes these files entirely in your browser. Your data is never uploaded to any server or stored anywhere else.</p>
         </section>
