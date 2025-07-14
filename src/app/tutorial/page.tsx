@@ -53,6 +53,11 @@ export default function Tutorial() {
           </ol>
         </section>
 
+        <section className="bg-light-accent border-1 border-accent rounded-3xl p-4">
+          <p>Privacy Note</p>
+          <p>Remember, this application processes these files entirely in your browser. Your data is never uploaded to any server or stored anywhere else.</p>
+        </section>
+
         <Link
           href="/"
           className="text-accent bg-light-accent rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer"
