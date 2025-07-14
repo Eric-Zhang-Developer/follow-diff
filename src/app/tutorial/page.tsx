@@ -57,9 +57,10 @@ export default function Tutorial() {
         <section className="space-y-4">
           <h2 className="font-main text-2xl font-semibold">Step 2</h2>
           <p className="text-secondary text-lg">
-            Instagram will process your request, which can take up to 48 hours.
-            You&apos;ll receive a notification and email when your data is ready
-            to download.
+            Instagram will now process your request. While their official notice
+            says this can take up to 48 hours, it&apos;s usually ready in about
+            <strong> 15 minutes</strong>. You&apos;ll receive an email and a
+            notification from Instagram when your data is ready to download.
           </p>
         </section>
 
