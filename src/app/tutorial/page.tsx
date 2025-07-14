@@ -29,16 +29,28 @@ export default function Tutorial() {
               Scroll down to <strong>Account settings</strong> and tap{" "}
               <strong>Your information and permissions</strong>
             </li>
-            <li>Select <strong>Download your information</strong></li>
-            <li>Tap the <strong>Download or transform information</strong> button</li>
-            <li>Select the <strong>Some of your information</strong> button</li>
             <li>
-              Scroll down to the <strong>Connections</strong> section and select <strong>Followers and
-              following</strong>
+              Select <strong>Download your information</strong>
             </li>
-            <li>Select the <strong>Download to device</strong> option</li>
-            <li>Select the <strong>JSON</strong> file option in Format</li>
-            <li>Tap <strong>Create files</strong> to request your information</li>
+            <li>
+              Tap the <strong>Download or transform information</strong> button
+            </li>
+            <li>
+              Select the <strong>Some of your information</strong> button
+            </li>
+            <li>
+              Scroll down to the <strong>Connections</strong> section and select{" "}
+              <strong>Followers and following</strong>
+            </li>
+            <li>
+              Select the <strong>Download to device</strong> option
+            </li>
+            <li>
+              Select the <strong>JSON</strong> file option in Format
+            </li>
+            <li>
+              Tap <strong>Create files</strong> to request your information
+            </li>
           </ol>
         </section>
 
@@ -55,12 +67,25 @@ export default function Tutorial() {
           <h2 className="font-main text-2xl font-semibold">Step 3</h2>
           <ol className="text-secondary list-decimal space-y-2 pl-6 text-lg">
             <li>
-              Once notified, go back to Accounts Center → Your information and permissions → Download your
-              information 
+              Once notified, go back to{" "}
+              <strong>
+                Accounts Center → Your information and permissions → Download
+                your information{" "}
+              </strong>
             </li>
             <li>Download your data package</li>
             <li>Unzip the downloaded file</li>
-            <li>There should be a followers_1.json and following.json, those are your files</li>
+            <li>
+              There should be a
+              <span className="mx-1 rounded-lg bg-slate-100 px-2 py-1 font-mono text-sm break-all">
+                followers_1.json
+              </span>
+              and
+              <span className="mx-1 rounded-lg bg-slate-100 px-2 py-1 font-mono text-sm break-all">
+                following.json
+              </span>
+              , those are your files
+            </li>
           </ol>
         </section>
 
