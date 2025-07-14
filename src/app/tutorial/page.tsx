@@ -60,7 +60,7 @@ export default function Tutorial() {
 
         <Link
           href="/"
-          className="text-accent bg-light-accent rounded-xl border-1 px-4 py-2 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer"
+          className="text-accent bg-light-accent rounded-2xl border-1 px-5 py-3 text-lg shadow-sm transition hover:scale-105 hover:cursor-pointer self-center sm:self-auto"
         >
           Return to Home 
         </Link>
