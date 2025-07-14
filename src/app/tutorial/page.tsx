@@ -46,7 +46,7 @@ export default function Tutorial() {
               Select the <strong>Download to device</strong> option
             </li>
             <li>
-              Select the <strong>JSON</strong> file option in Format
+              Select the <strong>JSON</strong> file option in <strong>Format</strong>
             </li>
             <li>
               In <strong>Date range</strong>, select <strong>All time</strong>
