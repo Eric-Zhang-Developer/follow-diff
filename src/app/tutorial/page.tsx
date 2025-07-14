@@ -7,9 +7,10 @@ export default function Tutorial() {
       <main className="container mx-auto flex flex-grow flex-col items-start gap-8 px-2 md:px-24">
         <Link
           href="/"
-          className="inline-flex items-center self-start p-4 text-lg"
+          className="inline-flex items-center self-start text-lg space-x-1 text-secondary py-2 pr-3 transition hover:scale-105"
         >
-          <ArrowLeft></ArrowLeft> Go Back
+          <ArrowLeft></ArrowLeft> 
+          <p>Go Back</p>
         </Link>
 
         <h1 className="font-main text-3xl md:text-5xl">
