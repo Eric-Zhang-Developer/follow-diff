@@ -55,13 +55,12 @@ export default function Tutorial() {
           <h2 className="font-main text-2xl font-semibold">Step 3</h2>
           <ol className="text-secondary list-decimal space-y-2 pl-6 text-lg">
             <li>
-              Once notified, go back to Settings and privacy → Download your
-              information
+              Once notified, go back to Accounts Center → Your information and permissions → Download your
+              information 
             </li>
             <li>Download your data package</li>
             <li>Unzip the downloaded file</li>
-            <li>Navigate to the followers_and_following folder</li>
-            <li>Find the followers.json and following.json files</li>
+            <li>There should be a followers_1.json and following.json, those are your files</li>
           </ol>
         </section>
 
