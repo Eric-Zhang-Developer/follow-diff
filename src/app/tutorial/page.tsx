@@ -22,21 +22,23 @@ export default function Tutorial() {
           <ol className="text-secondary list-decimal space-y-2 pl-6 text-lg">
             <li>Open Instagram on your mobile device or web browser</li>
             <li>Go to your profile and tap the menu icon (three lines)</li>
-            <li>Select Accounts Center</li>
             <li>
-              Scroll down to Account settings and tap Your information and
-              permissions
+              Select <strong>Accounts Center</strong>
             </li>
-            <li>Select Download your information</li>
-            <li>Tap the Download or transform information button</li>
-            <li>Select the Some of your information button</li>
             <li>
-              Scroll down to the Connections section and select Followers and
-              following
+              Scroll down to <strong>Account settings</strong> and tap{" "}
+              <strong>Your information and permissions</strong>
             </li>
-            <li>Select the Download to device option</li>
-            <li>Select the JSON file option in Format</li>
-            <li>Tap Create files to request your information</li>
+            <li>Select <strong>Download your information</strong></li>
+            <li>Tap the <strong>Download or transform information</strong> button</li>
+            <li>Select the <strong>Some of your information</strong> button</li>
+            <li>
+              Scroll down to the <strong>Connections</strong> section and select <strong>Followers and
+              following</strong>
+            </li>
+            <li>Select the <strong>Download to device</strong> option</li>
+            <li>Select the <strong>JSON</strong> file option in Format</li>
+            <li>Tap <strong>Create files</strong> to request your information</li>
           </ol>
         </section>
 
