@@ -85,7 +85,7 @@ export default function Tutorial() {
                 your information{" "}
               </strong>
             </li>
-            <li>Download your data package</li>
+            <li>Under <strong>Available downloads</strong>, download your data package</li>
             <li>Unzip the downloaded file</li>
             <li>
               There should be a
