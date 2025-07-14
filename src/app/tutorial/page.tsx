@@ -49,9 +49,20 @@ export default function Tutorial() {
               Select the <strong>JSON</strong> file option in Format
             </li>
             <li>
+              In <strong>Date range</strong>, select <strong>All time</strong>
+            </li>
+            <li>
               Tap <strong>Create files</strong> to request your information
             </li>
           </ol>
+        </section>
+        <section className="bg-light-accent border-accent space-y-2 rounded-3xl border-1 px-4 py-6 shadow-md">
+          <p className="font-main text-2xl font-semibold">
+            ⚠️ Critical step
+          </p>
+          <p className="text-secondary text-lg">
+            You must select the <strong>JSON</strong> format and <strong>All Time</strong> date range or the app will not work properly
+          </p>
         </section>
 
         <section className="space-y-4">
@@ -91,11 +102,18 @@ export default function Tutorial() {
         </section>
 
         <section className="bg-light-accent border-accent space-y-2 rounded-3xl border-1 px-4 py-6 shadow-md">
-          <p className="font-main text-2xl font-semibold">Pro Tip - Finding Your Files</p>
-          <p className="text-secondary text-lg">
-            When you go back to upload, your device&apos;s file browser will open. The folder you just unzipped can be tricky to find.
+          <p className="font-main text-2xl font-semibold">
+            Pro Tip - Finding Your Files
           </p>
-          <p className="text-secondary text-lg">The easiest way to locate it is to use the search bar and type <strong>followers_and_following</strong>. This will take you directly to the folder containing the files required</p>
+          <p className="text-secondary text-lg">
+            When you go back to upload, your device&apos;s file browser will
+            open. The folder you just unzipped can be tricky to find.
+          </p>
+          <p className="text-secondary text-lg">
+            The easiest way to locate it is to use the search bar and type{" "}
+            <strong>followers_and_following</strong>. This will take you
+            directly to the folder containing the files required
+          </p>
         </section>
 
         <section className="bg-light-accent border-accent space-y-2 rounded-3xl border-1 px-4 py-6 shadow-md">
