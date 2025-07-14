@@ -17,8 +17,8 @@ export default function Tutorial() {
         </h1>
 
         <section className="space-y-4">
-          <h2 className="font-main text-2xl">Step 1</h2>
-          <ol className="list-decimal space-y-2 pl-6 text-lg">
+          <h2 className="font-main text-2xl font-semibold">Step 1</h2>
+          <ol className="list-decimal space-y-2 pl-6 text-lg text-secondary">
             <li>Open Instagram on your mobile device or web browser</li>
             <li>Go to your profile and tap the menu icon (three lines)</li>
             <li>Select Settings and Privacy</li>
@@ -31,8 +31,8 @@ export default function Tutorial() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-main text-2xl">Step 2</h2>
-          <p className="text-lg">
+          <h2 className="font-main text-2xl font-semibold">Step 2</h2>
+          <p className="text-lg text-secondary">
             Instagram will process your request, which can take up to 48 hours.
             You&apos;ll receive a notification and email when your data is ready
             to download.
@@ -40,8 +40,8 @@ export default function Tutorial() {
         </section>
 
         <section className="space-y-4">
-          <h2 className="font-main text-2xl">Step 3</h2>
-          <ol className="list-decimal space-y-2 pl-6 text-lg">
+          <h2 className="font-main text-2xl font-semibold">Step 3</h2>
+          <ol className="list-decimal space-y-2 pl-6 text-lg text-secondary">
             <li>
               Once notified, go back to Settings and privacy → Download your
               information
@@ -54,7 +54,7 @@ export default function Tutorial() {
         </section>
 
         <section className="bg-light-accent border-1 border-accent rounded-3xl py-6 px-4 space-y-2">
-          <p className="font-main text-2xl">Privacy Note</p>
+          <p className="font-main text-2xl font-semibold">Privacy Note</p>
           <p className="text-lg text-secondary">Remember, this application processes these files entirely in your browser. Your data is never uploaded to any server or stored anywhere else.</p>
         </section>
 
