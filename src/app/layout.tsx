@@ -12,7 +12,7 @@ const lora = Lora({
 });
 
 export const metadata = {
-  title: "Follower Diff - See Who Doesn't Follow You Back",
+  title: "Follow Diff - See Who Doesn't Follow You Back",
   description:
     "Safely see your Instagram non-followers using your official Instagram data. Your files are processed right in your browser and never uploaded anywhere.",
 };
