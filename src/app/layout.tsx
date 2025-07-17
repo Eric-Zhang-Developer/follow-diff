@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Inter, Lora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${lora.variable}`}>{children}</body>
+      <body className={`${inter.variable} ${lora.variable}`}>
+        {children}
+        <Analytics></Analytics>
+      </body>
     </html>
   );
 }
